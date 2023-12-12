@@ -26,7 +26,7 @@ def convert_images(resize_shape: Tuple[int, int], return_data_early: bool) -> Op
         img_vec = np.array(img).flatten()   # all img grayscale pixels in a 1d array
         data_X.append(img_vec)
         data_y.append(row[DATA_CSV_CLASS_HEADER])   # separate since copying 350*350 array is expensive
-        print(f"{index / df.shape[0]:.2f}%")
+        #print(f"{index / df.shape[0]:.2f}%")
 
     print("--- Done turning images into vectors ---")
 
