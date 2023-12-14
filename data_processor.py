@@ -22,6 +22,10 @@ def convert_images(resize_shape: Tuple[int, int], return_data_early: bool) -> Op
         img_path = DATA_IMAGES_PATH / row[DATA_CSV_IMAGE_HEADER]       # create image path
         img = Image.open(img_path).convert('L')     # open image in grayscale
 
+        # ignore if original img isn't 350x350
+        if (img.size != DATA_IMG_SIZE):
+            continue
+
         img = img.resize(resize_shape)
         img_vec = np.array(img).flatten()   # all img grayscale pixels in a 1d array
         data_X.append(img_vec)
